@@ -3,22 +3,25 @@
 
 
 {% block content %}
-<h3>
-	Вход
-</h3>
-<form action="" method="POST">
-	{% csrf_token %}
-	{% if form.errors %}
-		<p>{{form.errors}}</p>
-	{% endif %}
-	<label for="">Введите логин:</label>
-	{{form.username}}
-	<label for="">Введите пароль:</label>
-	{{form.password}}
-	<button
-	type="sumbit" class="btn btn-primary">
+<div class="row mt-2">
+		
+	<h3>
 		Вход
-	</button>
-</form>
+	</h3>
+	<form action="" method="POST">
+		{% csrf_token %}
+		{% if form.errors %}
+			<p>{{form.errors}}</p>
+		{% endif %}
+		<label for="">Введите логин:</label>
+		{{form.username}}
+		<label for="">Введите пароль:</label>
+		{{form.password}}
+		<button
+		type="sumbit" class="btn btn-primary">
+			Вход
+		</button>
+	</form>
+</div>
 
 {% endblock content %}
