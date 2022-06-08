@@ -2,6 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.admin.forms import AuthenticationForm
+from users.forms import RegistrationForm
 
 def login_page(request):
 	if request.method == 'POST':
@@ -26,3 +27,14 @@ def login_page(request):
 def logout_page(request):
 	logout(request)
 	return redirect('blog_list')
+
+def register_page(request):
+	form = RegistrationForm()
+	if request.method == 'POST':
+		form = RegistrationForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('blog_list')
+
+	context = {'form': form}
+	return render(request, 'users/register_page.html', context)

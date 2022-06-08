@@ -5,7 +5,7 @@
 {% block content %}
 <div class="row mt-2">
 	<h3>
-		Вход | <button type="button" class="btn btn-outline-dark" href="{% url 'register_page' %}">Регистрация</button>
+		Регистрация
 	</h3>
 	<form class="row mt-2" action="" method="POST">
 		{% csrf_token %}
@@ -14,14 +14,18 @@
 		{% endif %}
 		<label for="">Введите логин:</label>
 		{{form.username}}
+		<label for="">Введите email:</label>
+		{{form.email}}
 		<label for="">Введите пароль:</label>
-		{{form.password}}
-		<div class="row mt-2">
-			<button
-			type="sumbit" class="btn btn-primary">
-				Вход
-			</button>
-		</div>
+		{{form.password1}}
+		<label for="">Введите подтверждения пароля:</label>
+		{{form.password2}}
+		<div class="row mt-2">	
+				<button
+				type="sumbit" class="btn btn-primary">
+					Ок
+				</button>
+			</div>
 	</form>
 </div>
 
