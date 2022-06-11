@@ -3,26 +3,28 @@
 
 
 {% block content %}
-<div class="row mt-2">
-	<h3>
-		Вход | <button type="button" class="btn btn-outline-dark" href="{% url 'register_page' %}">Регистрация</button>
-	</h3>
-	<form class="row mt-2" action="" method="POST">
-		{% csrf_token %}
-		{% if form.errors %}
-			<p>{{form.errors}}</p>
-		{% endif %}
-		<label for="">Введите логин:</label>
-		{{form.username}}
-		<label for="">Введите пароль:</label>
-		{{form.password}}
-		<div class="row mt-2">
-			<button
-			type="sumbit" class="btn btn-primary">
-				Вход
-			</button>
-		</div>
-	</form>
+<div class="container">
+	<div class="row mt-2">
+		<h3>
+			Вход | <button type="button" class="btn btn-outline-dark" href="{% url 'register_page' %}">Регистрация</button>
+		</h3>
+		<form class="row mt-2" action="" method="POST">
+			{% csrf_token %}
+			{% if form.errors %}
+				<p>{{form.errors}}</p>
+			{% endif %}
+			<label for="">Введите логин:</label>
+			{{form.username}}
+			<label for="">Введите пароль:</label>
+			{{form.password}}
+			<div class="row mt-2">
+				<button
+				type="sumbit" class="btn btn-primary btn-sm">
+					Вход
+				</button>
+			</div>
+		</form>
+	</div>
 </div>
 
 {% endblock content %}

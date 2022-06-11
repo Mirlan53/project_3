@@ -39,6 +39,7 @@
 		        </li>
 		      </ul>
 		      <form class="d-flex">
+	     		<div class="row mr-2">
 		        {% if user.is_authenticated %}
 		        	<span>{{user.username}}</span>
 		        	<span><a href="{% url 'logout_page' %}">Выход</a></span>
@@ -46,6 +47,7 @@
 		        	<span><a href="{% url 'login_page' %}">Вход</a></span>
 		        {% endif %}
 		      </form>
+		      	</div>
 		    </div>
 		  </div>
 		</nav>

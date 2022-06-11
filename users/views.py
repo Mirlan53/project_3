@@ -3,8 +3,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.admin.forms import AuthenticationForm
 from users.forms import RegistrationForm
+from django.contrib.auth.decorators import login_required
 
 def login_page(request):
+	form = AuthenticationForm()
 	if request.method == 'POST':
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
@@ -16,7 +18,6 @@ def login_page(request):
 				login(request, user) 
 				return redirect('blog_list')
 
-	form = AuthenticationForm()
 	context = {
 		'form': form
 	}
@@ -38,3 +39,7 @@ def register_page(request):
 
 	context = {'form': form}
 	return render(request, 'users/register_page.html', context)
+
+@login_required
+def me(request):
+	return render(request, 'users/me.html')
