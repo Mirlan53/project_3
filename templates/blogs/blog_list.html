@@ -1,1 +1,14 @@
-123
+{% extends "_base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+	{% for b in blogs %}
+	<h3>{{b.title}}</h3>
+	<p>{{b.text}}</p>
+	<hr>
+	{% endfor %}
+	<button type="button" class="btn btn-primary">Order</button>
+</div>
+
+{% endblock content %}
