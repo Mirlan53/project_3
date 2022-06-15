@@ -2,13 +2,21 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-	{% for b in blogs %}
-	<h3>{{b.title}}</h3>
-	<p>{{b.text}}</p>
-	<hr>
-	{% endfor %}
-	<button type="button" class="btn btn-primary">Order</button>
+
+<div class="row mt-2">
+	<div class="container">
+		<form action="", method="GET">
+			<label>Название</label>
+			<input type="text" name="q" class="form-control" placeholder="Поиск блогов" value="{{q}}">
+			<input type="text" name="q_user" class="form-control" placeholder="Пользователь" value="{{q_user}}">
+			<button class="bnt btn-primary" type="sumbit">Поиск</button>
+		</form>
+		{% for b in blogs %}
+		<h3>{{b.title}}</h3>
+		<p>{{b.text}}</p>
+		<hr>
+		{% endfor %}
+	</div>
 </div>
 
 {% endblock content %}
