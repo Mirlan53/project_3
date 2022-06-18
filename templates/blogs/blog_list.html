@@ -18,5 +18,18 @@
 		{% endfor %}
 	</div>
 </div>
+<div>
+	<span>
+	 	{% if blogs.has_previous %}
+	  		<a href="?page={{ blogs.previous_page_number }}&q{{q}}&q_user{{q_user}}">пред.</a>
+	 	{% endif %}
+		<span>
+	  		стр {{ blogs.number }} из {{ blogs.paginator.num_pages }}.
+	 	</span>
+	 	{% if blogs.has_next %}
+	   		<a href="?page={{ blogs.next_page_number }}&q{{q}}&q_user{{q_user}}">след.</a>
+	 	{% endif %}
+	</span>
+</div>
 
 {% endblock content %}
